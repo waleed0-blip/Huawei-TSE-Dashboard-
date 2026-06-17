@@ -28,31 +28,32 @@
             line-height: 1.5;
         }
 
-        /* PERFECT DISPLACEMENT CENTERING FOR MASTER PASS PORTAL */
+        /* PERFECT FLEXBOX DEAD-CENTER AUTHENTICATION SCREEN */
         #masterAuthShield {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-color: var(--primary-color); display: flex; justify-content: center; align-items: center; z-index: 999999;
         }
         .auth-card {
             background-color: white; color: var(--text-color); padding: 40px; border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; max-width: 400px; width: 90%; margin: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; max-width: 400px; width: 90%;
         }
         .auth-card h2 { margin-top: 0; color: var(--primary-color); font-size: 1.6rem; text-transform: uppercase; }
         .auth-input { width: 100%; padding: 12px 20px; margin-bottom: 15px; border: 2px solid var(--border-color); border-radius: 25px; font-size: 1rem; text-align: center; outline: none; box-sizing: border-box; }
-        .auth-submit-btn { background-color: var(--primary-color); color: white; border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; width: 100%; cursor: pointer; }
+        .auth-input:focus { border-color: var(--primary-color); }
+        .auth-submit-btn { background-color: var(--primary-color); color: white; border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; width: 100%; cursor: pointer; transition: background 0.2s; }
+        .auth-submit-btn:hover { background-color: #422c26; }
 
         .container { max-width: 1400px; margin: 0 auto; }
         header { text-align: center; border-bottom: 5px solid var(--primary-color); padding-bottom: 15px; margin-bottom: 35px; }
         header h1 { color: var(--primary-color); font-size: 2.4rem; text-transform: uppercase; margin: 0; font-weight: 800; outline: none; border: 1px dashed transparent; }
 
         .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .kpi-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s; }
+        .kpi-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s; }
         .kpi-card h3 { margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; color: #666; }
         .kpi-card .num { font-size: 2.2rem; font-weight: 800; color: var(--primary-color); }
         .kpi-card.interactive-metric { cursor: pointer; border-left: 4px solid var(--primary-color); }
-        .kpi-card.interactive-metric:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); background-color: #fffdfb; }
+        .kpi-card.interactive-metric:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
 
-        /* MODAL CORES SCREEN DESIGN LAYERS */
         .analytics-modal-shield { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999998; justify-content: center; align-items: center; }
         .modal-content-box { background-color: white; border-radius: 14px; max-width: 950px; width: 95%; max-height: 85vh; overflow-y: auto; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; }
         .close-modal-x { position: absolute; right: 20px; top: 20px; font-size: 1.5rem; font-weight: bold; color: #666; cursor: pointer; }
@@ -66,7 +67,6 @@
         .matrix-table th { background-color: #f5f5f5; font-weight: bold; }
         .matrix-header-container { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 
-        /* MATRIX REMOVAL ROW LAYOUT CONTROLS */
         .matrix-del-col-btn { display: none; background: var(--danger-color); color: white; border: none; border-radius: 4px; padding: 2px 6px; font-size: 0.75rem; cursor: pointer; font-weight: bold; }
         .admin-unlocked .matrix-del-col-btn { display: inline-block; }
         .clickable-cell-trigger { cursor: pointer; text-decoration: underline; color: var(--primary-color); font-weight: bold; }
@@ -92,7 +92,7 @@
         .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; margin-top: 25px; }
         .product-column { background: var(--card-bg); border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; }
         .product-column-header-wrap { position: relative; }
-        .product-title-node { background-color: var(--accent-color); padding: 18px; font-size: 1.3rem; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-color); outline: none; border: 1px solid transparent; }
+        .product-title-node { background-color: var(--accent-color); padding: 18px; font-size: 1.3rem; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-color); outline: none; border: 1px dashed transparent; }
         .remove-column-btn { display: none; position: absolute; top: 18px; right: 15px; background: var(--danger-color); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; font-weight: bold; cursor: pointer; z-index: 10; }
         .admin-unlocked .remove-column-btn { display: flex; justify-content: center; align-items: center; }
 
@@ -111,7 +111,7 @@
         .node-list { list-style: none; padding: 0; margin: 0; min-height: 5px; }
         .node-item { padding: 8px 6px; display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; position: relative; }
         .node-item input[type="checkbox"] { margin-top: 4px; width: 15px; height: 15px; accent-color: var(--success-color); }
-        .node-text { flex-grow: 1; outline: none; padding-right: 25px; border: 1px solid transparent; }
+        .node-text { flex-grow: 1; outline: none; padding-right: 25px; border: 1px dashed transparent; }
 
         .editable-active .node-text, .editable-active .product-title-node, .editable-active header h1, .editable-active .section-title span { border: 1px dashed var(--warning-color) !important; background-color: #fffde7; }
         .delete-node-btn { display: none; background: none; border: none; color: var(--danger-color); cursor: pointer; position: absolute; right: 4px; font-weight: bold; }
@@ -125,6 +125,7 @@
         .summary-progress-bg { height: 6px; margin-top: 4px; }
         .progress-bar { background: var(--success-color); height: 100%; width: 0%; transition: width 0.4s; }
         .search-bar { padding: 10px 20px; width: 150px; border: 2px solid var(--border-color); border-radius: 25px; outline: none; }
+        .error-message { color: #d32f2f; font-size: 0.85rem; font-weight: bold; margin-top: 10px; display: none; }
     </style>
 </head>
 <body>
@@ -162,7 +163,7 @@
 
 <div class="container" id="captureArea" style="visibility: hidden;">
     <header>
-        <h1 id="globalMainHeadlineText" onblur="saveCurrentDOMHeadlinesToState()">New Products Checklist & Analytics</h1>
+        <h1 id="globalMainHeadlineText">New Products Checklist & Analytics</h1>
     </header>
 
     <div class="kpi-row">
@@ -186,7 +187,7 @@
 
     <div class="overall-view-panel">
         <div class="section-title">
-            <span id="headlineOverviewPanelText" onblur="saveCurrentDOMHeadlinesToState()">📊 Overall Matrix Summary View</span>
+            <span id="headlineOverviewPanelText">📊 Overall Matrix Summary View</span>
             <button class="admin-control-btn" onclick="addNewProductColumnChannel()">➕ Add Product Line</button>
         </div>
         <table class="matrix-table" id="matrixTableSummary">
@@ -197,7 +198,7 @@
 
     <div class="analytics-section" id="incidentsTableContainer">
         <div class="section-title">
-            <span id="headlineIncidentLogText" onblur="saveCurrentDOMHeadlinesToState()">🚨 Technical Incident Capture Log</span>
+            <span id="headlineIncidentLogText">🚨 Technical Incident Capture Log</span>
             <button class="log-btn" onclick="createNewIncidentRow()">➕ Log New Issue</button>
         </div>
         <table class="matrix-table" id="incidentLogTable">
@@ -245,7 +246,8 @@
     const SITE_ENTRY_PASSWORD = "1234512345"; 
     const ADMIN_EDIT_PASSWORD = "1234";       
     
-    const CLOUD_DATABASE_URL = "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE"; 
+    // REPLACE THIS WITH YOUR DEPLOYED GOOGLE APPS SCRIPT URL
+    const CLOUD_DATABASE_URL = "https://script.google.com/macros/s/AKfycbx1bF352FMVJk97CUrBQn9yQWwk4WjYduE39wT71A0N5b1kGOo9CIZsm8Y4SQo6YzDwEQ/exec"; 
 
     let editMode = false;
     let currentActiveFilterId = "";
@@ -363,11 +365,10 @@
         }
     };
 
-    // 100% COMPLETE INJECTED INCIDENTS LOG PARSED ACROSS EVERY SINGLE FIELD SLIDE
     const DEFAULT_INCIDENTS_DATA = [
         { model: "Nova 15 Max", issue: "AI Remove option is not found in Gallery application framework", date: "2026-06", ref: "TM6202606150161", action: "HQ Still Analyzing the captured software package behavior parameters", status: "PENDING" },
         { model: "Nova 15 Max", issue: "Camera screen layout flashes aggressively during photo snapshot capture execution", date: "2026-05", ref: "TM202605150178", action: "HQ Analyzed and released technical support knowledge brief FAQ en-us16099942", status: "SOLVED" },
-        { model: "Nova 15 Max", issue: "Viewfinder lags completely and zoom configurations freeze on aperture mode transitions", date: "2026-05", ref: "TM6202605190108", action: "HQ verified. System software update EMUI 14.2.0.113 or subsequent versions fully resolves behavior", status: "SOLVED" },
+        { model: "Nova 15 Max", issue: "Viewfinder lags completely and zoom configurations freeze on aperture mode transitions", date: "2026-05", ref: "TM6202605190108", action: "Software fix verified. System upgrade to EMUI 14.2.0.113 or subsequent versions fully resolves behavior", status: "SOLVED" },
         { model: "Nova 15 Max", issue: "Ana Vodafone workspace crashes instantly post deployment via AppGallery", date: "2026-05", ref: "TM202605120198", action: "Caused by non-commercial engineering sample obtaining custom root privileges", status: "SOLVED" },
         { model: "Nova 15 Max", issue: "Android Auto validation parameters require cross-functional field status verification checks", date: "2026-05", ref: "TM6202605310059", action: "On-site sample verified active and functional. Knowledge base guidance articles modified and approved", status: "SOLVED" },
         { model: "Nova 15 Max", issue: "VoWiFi configuration encounters audio cutouts and network dropping trends on Vodafone Egypt links", date: "2026-06", ref: "TM6202606160185", action: "HQ engineering core groups actively parsing packet trace packages to identify routing gaps", status: "PENDING" },
@@ -409,6 +410,12 @@
             document.getElementById('authErrorNode').style.display = 'block';
             document.getElementById('masterGateKeyInput').value = '';
         }
+    }
+
+    function applyHeadlineStateToDOM() {
+        document.getElementById('globalMainHeadlineText').innerText = globalHeadlinesDataset.main;
+        document.getElementById('headlineOverviewPanelText').innerText = globalHeadlinesDataset.overview;
+        document.getElementById('headlineIncidentLogText').innerText = globalHeadlinesDataset.log;
     }
 
     function rebuildSummaryTableMarkupStructures() {
@@ -641,7 +648,7 @@
     }
 
     function addNewItemElement(id, sec) {
-        activeStateDataset[id][sec].push({ text: "New Parameter Metric...", checked: false });
+        activeStateDataset[id][sec].push({ text: "New Parameter...", checked: false });
         renderMatrixDashboardGrid();
         if(editMode) toggleLiveEditDOMSync(true);
         syncCloudChannel("checklist", activeStateDataset);
@@ -711,11 +718,9 @@
             saveDOMChangesToArray(); 
             btn.textContent = "🔒 Unlock Admin Edit"; 
             document.body.classList.remove('admin-unlocked', 'editable-active'); 
+            rebuildSummaryTableMarkupStructures(); 
+            renderMatrixDashboardGrid();
         }
-        
-        rebuildSummaryTableMarkupStructures(); 
-        renderMatrixDashboardGrid();
-        calculateDynamicKPIs();
         toggleLiveEditDOMSync();
     }
 
@@ -732,7 +737,7 @@
         const sections = ['key', 'app', 'prev'];
         Object.keys(activeStateDataset).forEach(prodId => {
             sections.forEach(sec => {
-                if (activeStateDataset[prodId] && activeStateDataset[prodId][sec]) {
+                if (activeStateDataset[prodId][sec]) {
                     const total = activeStateDataset[prodId][sec].length;
                     const checked = activeStateDataset[prodId][sec].filter(i => i.checked).length;
                     totalMaster += total; checkedMaster += checked;
@@ -772,6 +777,9 @@
     }
 
     async function fetchCloudState() {
+        let cachedHeadlines = localStorage.getItem('operations_headlines_storage');
+        if(cachedHeadlines) globalHeadlinesDataset = JSON.parse(cachedHeadlines);
+
         if(CLOUD_DATABASE_URL === "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE") return;
         try {
             let res = await fetch(CLOUD_DATABASE_URL);
@@ -784,8 +792,18 @@
         } catch(e) { console.log("Cloud Read Error:", e); }
     }
 
+    async function syncCloudChannel(type, payloadData) {
+        if(CLOUD_DATABASE_URL === "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE") return;
+        try {
+            await fetch(CLOUD_DATABASE_URL, {
+                method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ dataType: type, payload: payloadData })
+            });
+        } catch(e) { console.log("Cloud Push Error:", e); }
+    }
+
     function createNewIncidentRow() {
-        incidentLogDataset.push({ model: "New Product Model", issue: "Describe issue details...", date: "2026-06", ref: "Ref ID", action: "HQ action roadmap...", status: "PENDING" });
+        incidentLogDataset.push({ model: "New Product", issue: "Describe issue details...", date: "2026-06", ref: "Ref ID", action: "HQ action roadmap...", status: "PENDING" });
         calculateDynamicKPIs();
         syncCloudChannel("incidents", incidentLogDataset);
     }
