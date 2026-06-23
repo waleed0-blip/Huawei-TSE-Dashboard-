@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Products Checklist & Analytics Dashboard</title>
     
+    <!-- Native Presentation Presentation Compiler Dependency Engine -->
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/PptxGenJS@3.12.0/dist/pptxgen.bundle.js"></script>
     
     <style>
@@ -44,7 +45,6 @@
         .container { max-width: 1400px; margin: 0 auto; display: none; }
         header { text-align: center; border-bottom: 5px solid var(--primary-color); padding-bottom: 15px; margin-bottom: 35px; }
         
-        /* DATA DRIVEN HEADLINE INPUT SHAPES */
         .headline-input-element { display: block; border: 1px solid transparent; background: transparent; font-size: 2.4rem; text-transform: uppercase; margin: 0; font-weight: 800; text-align: center; color: var(--primary-color); width: 100%; outline: none; }
         .admin-unlocked .headline-input-element { border: 1px dashed var(--warning-color); background-color: #fffde7; border-radius: 8px; }
 
@@ -54,6 +54,10 @@
         .kpi-card .num { font-size: 2.2rem; font-weight: 800; color: var(--primary-color); }
         .kpi-card.interactive-metric { cursor: pointer; border-left: 4px solid var(--primary-color); transition: transform 0.2s; }
         .kpi-card.interactive-metric:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
+
+        .analytics-modal-shield { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999998; justify-content: center; align-items: center; }
+        .modal-content-box { background-color: white; border-radius: 14px; max-width: 950px; width: 95%; max-height: 80vh; overflow-y: auto; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; }
+        .close-modal-x { position: absolute; right: 20px; top: 20px; font-size: 1.5rem; font-weight: bold; color: #666; cursor: pointer; }
 
         .overall-view-panel, .analytics-section { background: #fff; border: 2px solid var(--primary-color); border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow-x: auto; }
         
@@ -88,10 +92,11 @@
 
         .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; margin-top: 25px; }
         .product-column { background: var(--card-bg); border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; }
+        .product-column-header-wrap { position: relative; }
         .product-title-input { border: none; background: transparent; padding: 18px; font-size: 1.3rem; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-color); outline: none; width: 100%; box-sizing: border-box; }
         .admin-unlocked .product-title-input { background-color: #fffde7; }
         
-        .remove-column-btn { display: none; position: absolute; top: 18px; right: 15px; background: var(--danger-color); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; font-weight: bold; cursor: pointer; z-index: 10; }
+        .remove-column-btn { display: none; position: absolute; top: 15px; right: 15px; background: var(--danger-color); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; font-weight: bold; cursor: pointer; z-index: 10; }
         .admin-unlocked .remove-column-btn { display: flex; justify-content: center; align-items: center; }
 
         .product-content { padding: 20px; display: flex; flex-direction: column; gap: 20px; }
@@ -112,14 +117,6 @@
 
         .table-text-input { border: none; background: transparent; font-size: 0.9rem; color: var(--text-color); outline: none; width: 100%; }
         .admin-unlocked .table-text-input { background-color: #fffde7; border-bottom: 1px dashed var(--warning-color); }
-
-        .doc-id { font-size: 0.75rem; font-family: monospace; color: #555; background: #eaeaea; padding: 2px 6px; border-radius: 4px; }
-        .hidden-node { display: none !important; }
-        .progress-container, .summary-progress-bg { background: #e0e0e0; border-radius: 10px; height: 10px; overflow: hidden; }
-        .summary-progress-bg { height: 6px; margin-top: 4px; }
-        .progress-bar { background: var(--success-color); height: 100%; width: 0%; transition: width 0.4s; }
-        .search-bar { padding: 10px 20px; width: 150px; border: 2px solid var(--border-color); border-radius: 25px; outline: none; }
-        .error-message { color: #d32f2f; font-size: 0.85rem; font-weight: bold; margin-top: 10px; display: none; }
     </style>
 </head>
 <body>
@@ -131,27 +128,6 @@
         <input type="password" id="masterGateKeyInput" class="auth-input" placeholder="••••••••" onkeydown="if(event.key === 'Enter') handleMasterAuthCheck()">
         <button class="auth-submit-btn" onclick="handleMasterAuthCheck()">Verify Entry Identity</button>
         <div id="authErrorNode" class="error-message">✕ Invalid entry token. Please try again.</div>
-    </div>
-</div>
-
-<div id="analyticsKpiModal" class="analytics-modal-shield" onclick="closeKpiDetailsModal()">
-    <div class="modal-content-box" onclick="event.stopPropagation()">
-        <span class="close-modal-x" onclick="closeKpiDetailsModal()">✕</span>
-        <h2 id="modalTargetTitle" style="color:var(--primary-color); margin-top:0; border-bottom:2px solid #eee; padding-bottom:8px;">Bugs Log Summary View</h2>
-        <div style="overflow-x:auto;">
-            <table class="matrix-table">
-                <thead>
-                    <tr>
-                        <th>Product Model</th>
-                        <th>Captured Technical Issue</th>
-                        <th>Date Logged</th>
-                        <th>Reference Code</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="modalTableBodyTarget"></tbody>
-            </table>
-        </div>
     </div>
 </div>
 
@@ -326,7 +302,7 @@
                 { text: "Petal Maps", checked: false },
                 { text: "YouTube (High resolution Videos)", checked: false },
                 { text: "Facebook", checked: false },
-                { text: "WPS PC (Arabic and English)", checked: false },
+                { text: "WPS Office PC Level Framework", checked: false },
                 { text: "Netflix", checked: false },
                 { text: "Amazon Prime", checked: false }
             ],
@@ -359,7 +335,7 @@
         }
     };
 
-    // ACCURATE 23 CAPTURED FIELD INCIDENTS MATCHING PPT METRICS DISTRIBUTION
+    // 100% INJECTED COMPLETE CHUTU LAB HISTORIES
     const DEFAULT_INCIDENTS_DATA = [
         { model: "Nova 15 Max", issue: "AI Remove option is not found in Gallery application framework", date: "2026-06", ref: "TM6202606150161", action: "HQ Still Analyzing the captured software package behavior parameters", status: "PENDING" },
         { model: "Nova 15 Max", issue: "Camera screen layout flashes aggressively during photo snapshot capture execution", date: "2026-05", ref: "TM202605150178", action: "HQ Analyzed and released technical support knowledge brief FAQ en-us16099942", status: "SOLVED" },
@@ -386,22 +362,18 @@
         { model: "GT Runner 2", issue: "XDR positional pathing algorithms require validation mapping logs under complex structural environments", date: "2026-04", ref: "TM202604100158", action: "Verified active; algorithmic tracking guarantees trace continuity even across dense environmental noise loops", status: "SOLVED" }
     ];
 
-    let activeStateDataset = DEFAULT_CHECKLIST_DATA;
-    let incidentLogDataset = DEFAULT_INCIDENTS_DATA;
-
     function handleMasterAuthCheck() {
-        const inputVal = document.getElementById('masterGateKeyInput').value;
-        if (inputVal === SITE_ENTRY_PASSWORD) {
+        if (document.getElementById('masterGateKeyInput').value === SITE_ENTRY_PASSWORD) {
             document.getElementById('masterAuthShield').style.display = 'none';
-            document.getElementById('captureArea').style.visibility = 'visible'; 
+            document.getElementById('captureArea').style.display = 'block'; 
             
-            // INSTANT COMPILATION PATHWAY SECURES LAUNCH VISIBILITY IMMEDIATELY
+            // RENDERS LANDING ARRAYS IMMEDIATELY TO BYPASS CLOUD HANGS
             applyHeadlineStateToDOM();
             rebuildSummaryTableMarkupStructures();
             renderMatrixDashboardGrid();
             calculateDynamicKPIs();
 
-            // Background Async Fetch handles subsequent merge profiles transparently
+            // Quietly fetches remote state without stopping entry
             fetchCloudState().then(() => {
                 applyHeadlineStateToDOM();
                 rebuildSummaryTableMarkupStructures();
@@ -636,6 +608,37 @@
         refreshMetrics();
     }
 
+    function handleCheckboxStateToggle(chk, id, sec, idx) {
+        activeStateDataset[id][sec][idx].checked = chk.checked;
+        refreshMetrics();
+        syncCloudChannel("checklist", activeStateDataset);
+    }
+
+    function addNewItemElement(id, sec) {
+        activeStateDataset[id][sec].push({ text: "New Parameter...", checked: false });
+        renderMatrixDashboardGrid();
+        if(editMode) toggleLiveEditDOMSync(true);
+        syncCloudChannel("checklist", activeStateDataset);
+    }
+
+    function deleteItemElement(btn, id, sec, idx) {
+        activeStateDataset[id][sec].splice(idx, 1);
+        renderMatrixDashboardGrid();
+        if(editMode) toggleLiveEditDOMSync(true);
+        syncCloudChannel("checklist", activeStateDataset);
+    }
+
+    function toggleLiveEditDOMSync(forceStyles = false) {
+        const textElements = document.querySelectorAll('.node-text, .product-title-node, header h1, .section-title span');
+        if(editMode || forceStyles) {
+            textElements.forEach(el => { el.setAttribute('contenteditable', 'true'); });
+            document.querySelectorAll('.table-text-input, .product-title-input, .node-text-input').forEach(el => el.removeAttribute('readonly'));
+        } else {
+            textElements.forEach(el => el.removeAttribute('contenteditable'));
+            document.querySelectorAll('.table-text-input, .product-title-input, .node-text-input').forEach(el => el.setAttribute('readonly', true));
+        }
+    }
+
     function toggleLiveEdit() {
         if (!editMode) {
             const inputPass = prompt("Enter Admin Password:");
@@ -657,6 +660,7 @@
         rebuildSummaryTableMarkupStructures(); 
         renderMatrixDashboardGrid();
         calculateDynamicKPIs();
+        toggleLiveEditDOMSync();
     }
 
     function updateScriptStatus(selectElement, prodId, updateStorage = true) {
@@ -698,7 +702,7 @@
     function executeSearch() {
         const query = document.getElementById('dashboardSearch').value.trim().toLowerCase();
         document.querySelectorAll('.node-item').forEach(item => {
-            if(item.value.toLowerCase().includes(query) || !query) item.style.opacity = "1"; else item.style.opacity = "0.2";
+            if(item.querySelector('.node-text-input').value.toLowerCase().includes(query) || !query) item.style.opacity = "1"; else item.style.opacity = "0.2";
         });
     }
 
@@ -769,7 +773,7 @@
             const p = activeStateDataset[id];
             let slide = pptx.addSlide();
             slide.addText(`${p.title.toUpperCase()} FUNCTIONAL CHECKLIST STATUS`, { x: 0.5, y: 0.4, w: 11, h: 0.5, fontSize: 18, bold: true, color: '5c3e35' });
-            slide.addText("Proactive Quality Evaluation Matrix", { x: 0.5, y: 0.9, w: 8, h: 0.3, fontSize: 11, bold: true, color: 'f57c00' });
+            slide.addText("Egypt Proactive Quality Evaluation Framework", { x: 0.5, y: 0.9, w: 8, h: 0.3, fontSize: 11, bold: true, color: 'f57c00' });
 
             let currentY = 1.4;
             ['key', 'app', 'prev'].forEach(sec => {
