@@ -28,50 +28,46 @@
             line-height: 1.5;
         }
 
-        /* PERFECTLY CENTERED MASTER LOGIN SCREEN STYLES */
+        /* PERFECT FLEXBOX DEAD-CENTER PORTAL GATE */
         #masterAuthShield {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background-color: #5c3e35; display: flex; justify-content: center; align-items: center; z-index: 999999; color: white;
-            box-sizing: border-box;
+            background-color: var(--primary-color); display: flex; justify-content: center; align-items: center; z-index: 999999;
         }
         .auth-card {
-            background-color: white; color: #2b2b2b; padding: 40px; border-radius: 14px;
+            background-color: white; color: var(--text-color); padding: 40px; border-radius: 14px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; max-width: 400px; width: 90%; margin: auto;
         }
-        .auth-card h2 { margin-top: 0; color: #5c3e35; font-size: 1.6rem; text-transform: uppercase; }
-        .auth-input { width: 100%; padding: 12px 20px; margin-bottom: 15px; border: 2px solid #d9d9d9; border-radius: 25px; font-size: 1rem; text-align: center; outline: none; box-sizing: border-box; }
-        .auth-submit-btn { background-color: #5c3e35; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; width: 100%; cursor: pointer; }
+        .auth-card h2 { margin-top: 0; color: var(--primary-color); font-size: 1.6rem; text-transform: uppercase; }
+        .auth-input { width: 100%; padding: 12px 20px; margin-bottom: 15px; border: 2px solid var(--border-color); border-radius: 25px; font-size: 1rem; text-align: center; outline: none; box-sizing: border-box; }
+        .auth-submit-btn { background-color: var(--primary-color); color: white; border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; width: 100%; cursor: pointer; }
 
-        .container { max-width: 1400px; margin: 0 auto; }
+        .container { max-width: 1400px; margin: 0 auto; display: none; }
         header { text-align: center; border-bottom: 5px solid var(--primary-color); padding-bottom: 15px; margin-bottom: 35px; }
-        header h1 { color: var(--primary-color); font-size: 2.4rem; text-transform: uppercase; margin: 0; font-weight: 800; outline: none; border: 1px dashed transparent; }
+        
+        /* DATA DRIVEN HEADLINE INPUT SHAPES */
+        .headline-input-element { display: block; border: 1px solid transparent; background: transparent; font-size: 2.4rem; text-transform: uppercase; margin: 0; font-weight: 800; text-align: center; color: var(--primary-color); width: 100%; outline: none; }
+        .admin-unlocked .headline-input-element { border: 1px dashed var(--warning-color); background-color: #fffde7; border-radius: 8px; }
 
         .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .kpi-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s; }
+        .kpi-card { background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
         .kpi-card h3 { margin: 0 0 10px 0; font-size: 0.9rem; text-transform: uppercase; color: #666; }
         .kpi-card .num { font-size: 2.2rem; font-weight: 800; color: var(--primary-color); }
-        .kpi-card.interactive-metric { cursor: pointer; border-left: 4px solid var(--primary-color); }
-        .kpi-card.interactive-metric:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); background-color: #fffdfb; }
-
-        /* MODAL SCREEN DESIGN LAYERS */
-        .analytics-modal-shield { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999998; justify-content: center; align-items: center; }
-        .modal-content-box { background-color: white; border-radius: 14px; max-width: 850px; width: 95%; max-height: 80vh; overflow-y: auto; padding: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; }
-        .close-modal-x { position: absolute; right: 20px; top: 20px; font-size: 1.5rem; font-weight: bold; color: #666; cursor: pointer; }
+        .kpi-card.interactive-metric { cursor: pointer; border-left: 4px solid var(--primary-color); transition: transform 0.2s; }
+        .kpi-card.interactive-metric:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }
 
         .overall-view-panel, .analytics-section { background: #fff; border: 2px solid var(--primary-color); border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow-x: auto; }
-        .section-title { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid #eee; padding-bottom: 5px; display: flex; justify-content: space-between; align-items: center; }
-        .section-title span { outline: none; border: 1px dashed transparent; }
         
+        .panel-heading-input { border: none; background: transparent; font-size: 1.2rem; font-weight: bold; color: var(--primary-color); text-transform: uppercase; width: 60%; outline: none; }
+        .admin-unlocked .panel-heading-input { border-bottom: 1px dashed var(--warning-color); background-color: #fffde7; }
+
         .matrix-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
         .matrix-table th, .matrix-table td { border: 1px solid var(--border-color); padding: 10px 12px; vertical-align: middle; }
-        .matrix-table th { background-color: #f5f5f5; font-weight: bold; position: relative; }
+        .matrix-table th { background-color: #f5f5f5; font-weight: bold; }
         .matrix-header-container { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 
         .matrix-del-col-btn { display: none; background: var(--danger-color); color: white; border: none; border-radius: 4px; padding: 2px 6px; font-size: 0.75rem; cursor: pointer; font-weight: bold; }
         .admin-unlocked .matrix-del-col-btn { display: inline-block; }
-        
         .clickable-cell-trigger { cursor: pointer; text-decoration: underline; color: var(--primary-color); font-weight: bold; }
-        .clickable-cell-trigger:hover { background-color: var(--accent-color); color: #111; }
 
         .log-btn, .admin-control-btn { background-color: var(--warning-color); color: white; border: none; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; cursor: pointer; display: none; }
         .admin-unlocked .log-btn, .admin-unlocked .admin-control-btn { display: inline-block; }
@@ -92,35 +88,31 @@
 
         .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; margin-top: 25px; }
         .product-column { background: var(--card-bg); border-radius: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid var(--border-color); overflow: hidden; display: flex; flex-direction: column; }
-        .product-column-header-wrap { position: relative; }
-        .product-title-node { background-color: var(--accent-color); padding: 18px; font-size: 1.3rem; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-color); outline: none; border: 1px solid transparent; }
+        .product-title-input { border: none; background: transparent; padding: 18px; font-size: 1.3rem; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-color); outline: none; width: 100%; box-sizing: border-box; }
+        .admin-unlocked .product-title-input { background-color: #fffde7; }
         
-        .remove-column-btn { display: none; position: absolute; top: 15px; right: 15px; background: var(--danger-color); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; font-weight: bold; cursor: pointer; font-size: 0.8rem; z-index: 10; }
+        .remove-column-btn { display: none; position: absolute; top: 18px; right: 15px; background: var(--danger-color); color: white; border: none; border-radius: 50%; width: 24px; height: 24px; font-weight: bold; cursor: pointer; z-index: 10; }
         .admin-unlocked .remove-column-btn { display: flex; justify-content: center; align-items: center; }
 
         .product-content { padding: 20px; display: flex; flex-direction: column; gap: 20px; }
-        .block-section { display: flex; flex-direction: column; padding: 5px; border-radius: 6px; transition: background-color 0.4s; }
+        .block-section { display: flex; flex-direction: column; }
         .block-header { font-size: 0.95rem; font-weight: 700; color: var(--primary-color); text-transform: uppercase; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
-        
-        .script-select { font-size: 0.8rem; font-weight: bold; padding: 3px 8px; border-radius: 12px; border: 1px solid var(--border-color); pointer-events: none; background-color: #f5f5f5; }
-        .admin-unlocked .script-select { pointer-events: auto; background-color: #fff; }
-
-        .status-done { background-color: #e8f5e9; color: var(--success-color); border: 1px solid #c8e6c9; }
-        .status-progress { background-color: #fff3e0; color: var(--warning-color); border: 1px solid #ffe0b2; }
-        .status-pending { background-color: #ffebee; color: var(--danger-color); border: 1px solid #ffcdd2; }
-        .status-badge-inline { display: inline-block; font-size: 0.75rem; font-weight: bold; padding: 2px 8px; border-radius: 10px; }
 
         .node-list { list-style: none; padding: 0; margin: 0; min-height: 5px; }
         .node-item { padding: 8px 6px; display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; position: relative; }
         .node-item input[type="checkbox"] { margin-top: 4px; width: 15px; height: 15px; accent-color: var(--success-color); }
-        .node-text { flex-grow: 1; outline: none; padding-right: 25px; border: 1px solid transparent; }
         
-        .editable-active .node-text, .editable-active .product-title-node, .editable-active header h1, .editable-active .section-title span { border: 1px dashed var(--warning-color) !important; background-color: #fffde7; }
+        .node-text-input { flex-grow: 1; border: none; background: transparent; font-size: 0.9rem; color: var(--text-color); outline: none; width: 100%; padding-right: 25px; box-sizing: border-box; }
+        .admin-unlocked .node-text-input { border-bottom: 1px dashed var(--warning-color); background-color: #fffde7; }
+
         .delete-node-btn { display: none; background: none; border: none; color: var(--danger-color); cursor: pointer; position: absolute; right: 4px; font-weight: bold; }
         .admin-unlocked .delete-node-btn { display: block; }
         .add-node-btn { display: none; background: none; border: 1px dashed var(--warning-color); color: var(--warning-color); padding: 5px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; margin-top: 6px; text-align: center; font-weight: bold; }
         .admin-unlocked .add-node-btn { display: block; }
-        
+
+        .table-text-input { border: none; background: transparent; font-size: 0.9rem; color: var(--text-color); outline: none; width: 100%; }
+        .admin-unlocked .table-text-input { background-color: #fffde7; border-bottom: 1px dashed var(--warning-color); }
+
         .doc-id { font-size: 0.75rem; font-family: monospace; color: #555; background: #eaeaea; padding: 2px 6px; border-radius: 4px; }
         .hidden-node { display: none !important; }
         .progress-container, .summary-progress-bg { background: #e0e0e0; border-radius: 10px; height: 10px; overflow: hidden; }
@@ -163,9 +155,9 @@
     </div>
 </div>
 
-<div class="container" id="captureArea" style="visibility: hidden;">
+<div class="container" id="captureArea">
     <header>
-        <h1 id="globalMainHeadlineText" onblur="saveDOMChangesToArray()">New Products Checklist & Analytics</h1>
+        <input type="text" id="globalMainHeadlineText" class="headline-input-element" oninput="handleHeadlineInput('main', this.value)" readonly>
     </header>
 
     <div class="kpi-row">
@@ -183,13 +175,13 @@
         </div>
         <div class="kpi-card">
             <h3>Project Footprint Hotspot</h3>
-            <div class="num" id="kpiHotspot" style="font-size:1.1rem; padding-top:15px; font-weight:700;">None</div>
+            <div class="num" id="kpiHotspot" style="font-size:1rem; padding-top:15px; font-weight:700;">None</div>
         </div>
     </div>
 
     <div class="overall-view-panel">
         <div class="section-title">
-            <span id="headlineOverviewPanelText" onblur="saveDOMChangesToArray()">📊 Overall Matrix Summary View</span>
+            <input type="text" id="headlineOverviewPanelText" class="panel-heading-input" oninput="handleHeadlineInput('overview', this.value)" readonly>
             <button class="admin-control-btn" onclick="addNewProductColumnChannel()">➕ Add Product Line</button>
         </div>
         <table class="matrix-table" id="matrixTableSummary">
@@ -200,7 +192,7 @@
 
     <div class="analytics-section" id="incidentsTableContainer">
         <div class="section-title">
-            <span id="headlineIncidentLogText" onblur="saveDOMChangesToArray()">🚨 Technical Incident Capture Log</span>
+            <input type="text" id="headlineIncidentLogText" class="panel-heading-input" oninput="handleHeadlineInput('log', this.value)" readonly>
             <button class="log-btn" onclick="createNewIncidentRow()">➕ Log New Issue</button>
         </div>
         <table class="matrix-table" id="incidentLogTable">
@@ -248,7 +240,7 @@
     const SITE_ENTRY_PASSWORD = "1234512345"; 
     const ADMIN_EDIT_PASSWORD = "1234";       
     
-    // Paste your unique Google Apps Script deployment URL here:
+    // Paste your Google Web App script URL here:
     const CLOUD_DATABASE_URL = "PASTE_YOUR_GOOGLE_WEB_APP_URL_HERE"; 
 
     let editMode = false;
@@ -260,7 +252,6 @@
         log: "🚨 Technical Incident Capture Log"
     };
 
-    // AUDITED BASE PARAMETER MATRICES DIRECTLY MATCHING REPORT CORES
     const DEFAULT_CHECKLIST_DATA = {
         mate80: {
             title: "Mate 80 Pro", script: "done",
@@ -368,7 +359,7 @@
         }
     };
 
-    // 100% EXHAUSTIVE BUG HISTORY AUDITED FROM REPORT 1, 2, AND 3 CIRCLES
+    // ACCURATE 23 CAPTURED FIELD INCIDENTS MATCHING PPT METRICS DISTRIBUTION
     const DEFAULT_INCIDENTS_DATA = [
         { model: "Nova 15 Max", issue: "AI Remove option is not found in Gallery application framework", date: "2026-06", ref: "TM6202606150161", action: "HQ Still Analyzing the captured software package behavior parameters", status: "PENDING" },
         { model: "Nova 15 Max", issue: "Camera screen layout flashes aggressively during photo snapshot capture execution", date: "2026-05", ref: "TM202605150178", action: "HQ Analyzed and released technical support knowledge brief FAQ en-us16099942", status: "SOLVED" },
@@ -395,10 +386,60 @@
         { model: "GT Runner 2", issue: "XDR positional pathing algorithms require validation mapping logs under complex structural environments", date: "2026-04", ref: "TM202604100158", action: "Verified active; algorithmic tracking guarantees trace continuity even across dense environmental noise loops", status: "SOLVED" }
     ];
 
-    function applyHeadlineStateToDOM() {
-        document.getElementById('globalMainHeadlineText').innerText = globalHeadlinesDataset.main;
-        document.getElementById('headlineOverviewPanelText').innerText = globalHeadlinesDataset.overview;
-        document.getElementById('headlineIncidentLogText').innerText = globalHeadlinesDataset.log;
+    let activeStateDataset = DEFAULT_CHECKLIST_DATA;
+    let incidentLogDataset = DEFAULT_INCIDENTS_DATA;
+
+    function handleMasterAuthCheck() {
+        const inputVal = document.getElementById('masterGateKeyInput').value;
+        if (inputVal === SITE_ENTRY_PASSWORD) {
+            document.getElementById('masterAuthShield').style.display = 'none';
+            document.getElementById('captureArea').style.visibility = 'visible'; 
+            
+            // INSTANT COMPILATION PATHWAY SECURES LAUNCH VISIBILITY IMMEDIATELY
+            applyHeadlineStateToDOM();
+            rebuildSummaryTableMarkupStructures();
+            renderMatrixDashboardGrid();
+            calculateDynamicKPIs();
+
+            // Background Async Fetch handles subsequent merge profiles transparently
+            fetchCloudState().then(() => {
+                applyHeadlineStateToDOM();
+                rebuildSummaryTableMarkupStructures();
+                renderMatrixDashboardGrid();
+                calculateDynamicKPIs();
+            });
+        } else {
+            document.getElementById('authErrorNode').style.display = 'block';
+            document.getElementById('masterGateKeyInput').value = '';
+        }
+    }
+
+    function handleHeadlineInput(fieldKey, valueString) {
+        globalHeadlinesDataset[fieldKey] = valueString;
+        localStorage.setItem('operations_headlines_storage', JSON.stringify(globalHeadlinesDataset));
+        syncCloudChannel("headlines", globalHeadlinesDataset);
+    }
+
+    function handleProductTitleInput(productId, valueString) {
+        if(activeStateDataset[productId]) {
+            activeStateDataset[productId].title = valueString;
+            syncCloudChannel("checklist", activeStateDataset);
+        }
+    }
+
+    function handleItemTextInput(productId, sectionKey, indexPosition, valueString) {
+        if(activeStateDataset[productId] && activeStateDataset[productId][sectionKey][indexPosition]) {
+            activeStateDataset[productId][sectionKey][indexPosition].text = valueString;
+            syncCloudChannel("checklist", activeStateDataset);
+        }
+    }
+
+    function handleIncidentTableInput(globalIndex, fieldKey, valueString) {
+        if(incidentLogDataset[globalIndex]) {
+            incidentLogDataset[globalIndex][fieldKey] = valueString;
+            calculateDynamicKPIs();
+            syncCloudChannel("incidents", incidentLogDataset);
+        }
     }
 
     function rebuildSummaryTableMarkupStructures() {
@@ -441,7 +482,6 @@
         tabsBox.innerHTML = tabsHTML;
     }
 
-    // SMART KPI CALCULATION MATRIX RUNTIME ENGINE
     function calculateDynamicKPIs() {
         let filteredIncidents = incidentLogDataset;
         let targetLabel = "Project Scope Issues";
@@ -488,16 +528,16 @@
         const tbody = document.getElementById('incidentTableBody');
         if (!tbody) return; tbody.innerHTML = '';
 
-        datasetToDraw.forEach((inc, index) => {
+        datasetToDraw.forEach((inc) => {
             const globalIndex = incidentLogDataset.findIndex(i => i.issue === inc.issue && i.ref === inc.ref);
 
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td class="inc-cell" data-idx="${globalIndex}" data-field="model">${inc.model}</td>
-                <td class="inc-cell" data-idx="${globalIndex}" data-field="issue">${inc.issue}</td>
-                <td class="inc-cell" data-idx="${globalIndex}" data-field="date">${inc.date}</td>
-                <td class="inc-cell" data-idx="${globalIndex}" data-field="ref">${inc.ref}</td>
-                <td class="inc-cell" data-idx="${globalIndex}" data-field="action">${inc.action}</td>
+                <td><input type="text" class="table-text-input" value="${inc.model}" oninput="handleIncidentTableInput(${globalIndex}, 'model', this.value)" ${editMode?'':'readonly'}></td>
+                <td><input type="text" class="table-text-input" value="${inc.issue}" oninput="handleIncidentTableInput(${globalIndex}, 'issue', this.value)" ${editMode?'':'readonly'}></td>
+                <td><input type="text" class="table-text-input" value="${inc.date}" oninput="handleIncidentTableInput(${globalIndex}, 'date', this.value)" ${editMode?'':'readonly'}></td>
+                <td><input type="text" class="table-text-input" value="${inc.ref}" oninput="handleIncidentTableInput(${globalIndex}, 'ref', this.value)" ${editMode?'':'readonly'}></td>
+                <td><input type="text" class="table-text-input" value="${inc.action}" oninput="handleIncidentTableInput(${globalIndex}, 'action', this.value)" ${editMode?'':'readonly'}></td>
                 <td>
                     <select class="script-select ${inc.status === 'SOLVED' ? 'status-done' : 'status-pending'}" onchange="updateIncidentStatus(this, ${globalIndex})">
                         <option value="PENDING" ${inc.status === 'PENDING' ? 'selected' : ''}>PENDING</option>
@@ -507,48 +547,9 @@
             `;
             tbody.appendChild(tr);
         });
-        if(editMode) enforceIncidentCellEdits();
     }
-
-    function triggerKpiFilterModal(scopeFilterMode) {
-        let targetedArray = incidentLogDataset;
-        let titleLabel = "Full Project Captured Issues History";
-
-        if (currentActiveFilterId !== "" && activeStateDataset[currentActiveFilterId]) {
-            const modelText = activeStateDataset[currentActiveFilterId].title;
-            targetedArray = incidentLogDataset.filter(i => i.model.toLowerCase().includes(modelText.toLowerCase()));
-            titleLabel = `${modelText} Filtered Metrics Allocation`;
-        }
-
-        if (scopeFilterMode === "PENDING") { targetedArray = targetedArray.filter(i => i.status === "PENDING"); titleLabel += " - Open Pending Actions"; }
-        else if (scopeFilterMode === "SOLVED") { targetedArray = targetedArray.filter(i => i.status === "SOLVED"); titleLabel += " - Resolved Track Logs"; }
-
-        document.getElementById('modalTargetTitle').innerText = titleLabel;
-        const modalBody = document.getElementById('modalTableBodyTarget');
-        modalBody.innerHTML = '';
-
-        if(targetedArray.length === 0) {
-            modalBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#888;">No recorded incidents found matching this filter parameter scope.</td></tr>`;
-        } else {
-            targetedArray.forEach(inc => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td><strong>${inc.model}</strong></td>
-                    <td>${inc.issue}</td>
-                    <td><span class="doc-id">${inc.date}</span></td>
-                    <td><span class="doc-id">${inc.ref}</span></td>
-                    <td><span class="status-badge-inline ${inc.status === 'SOLVED' ? 'status-done':'status-pending'}">${inc.status}</span></td>
-                `;
-                modalBody.appendChild(tr);
-            });
-        }
-        document.getElementById('analyticsKpiModal').style.display = 'flex';
-    }
-
-    function closeKpiDetailsModal() { document.getElementById('analyticsKpiModal').style.display = 'none'; }
 
     function addNewProductColumnChannel() {
-        if(editMode) saveDOMChangesToArray(); // Dynamic State Flush Injection
         const rawName = prompt("Enter the name of the new Product Model:");
         if(!rawName) return;
 
@@ -562,7 +563,6 @@
 
     function removeProductColumnChannel(id) {
         if(!confirm(`Delete "${activeStateDataset[id].title}" permanently?`)) return;
-        if(editMode) saveDOMChangesToArray(); // Dynamic State Flush Injection
         delete activeStateDataset[id];
         if(currentActiveFilterId === id) currentActiveFilterId = "";
         
@@ -592,7 +592,7 @@
             let contentHTML = `
                 <div class="product-column-header-wrap">
                     <button class="remove-column-btn" onclick="removeProductColumnChannel('${id}')">✕</button>
-                    <div class="product-title-node">${prod.title}</div>
+                    <input type="text" class="product-title-node product-title-input" value="${prod.title}" oninput="handleProductTitleInput('${id}', this.value)" ${editMode?'':'readonly'}>
                 </div>
                 <div class="product-content">
                     <div class="block-section" data-section="script">
@@ -617,13 +617,10 @@
 
                 if (prod[sec] && Array.isArray(prod[sec])) {
                     prod[sec].forEach((item, index) => {
-                        let textDisplay = item.text;
-                        if(textDisplay.includes('en-us')) textDisplay = textDisplay.replace(/(en-us\d+)/, '<span class="doc-id">$1</span>');
-
                         contentHTML += `
                             <li class="node-item">
                                 <input type="checkbox" ${item.checked ? 'checked' : ''} onclick="handleCheckboxStateToggle(this, '${id}', '${sec}', ${index})">
-                                <span class="node-text">${textDisplay}</span>
+                                <input type="text" class="node-text-input" value="${item.text}" oninput="handleItemTextInput('${id}', '${sec}', ${index}, this.value)" ${editMode?'':'readonly'}>
                                 <button class="delete-node-btn" onclick="deleteItemElement(this, '${id}', '${sec}', ${index})">✕</button>
                             </li>
                         `;
@@ -639,91 +636,27 @@
         refreshMetrics();
     }
 
-    function handleCheckboxStateToggle(chk, id, sec, idx) {
-        activeStateDataset[id][sec][idx].checked = chk.checked;
-        refreshMetrics();
-        syncCloudChannel("checklist", activeStateDataset);
-    }
-
-    function addNewItemElement(id, sec) {
-        if(editMode) saveDOMChangesToArray(); // Dynamic State Flush Injection
-        activeStateDataset[id][sec].push({ text: "New Parameter...", checked: false });
-        renderMatrixDashboardGrid();
-        if(editMode) toggleLiveEditDOMSync(true);
-        syncCloudChannel("checklist", activeStateDataset);
-    }
-
-    function deleteItemElement(btn, id, sec, idx) {
-        if(editMode) saveDOMChangesToArray(); // Dynamic State Flush Injection
-        activeStateDataset[id][sec].splice(idx, 1);
-        renderMatrixDashboardGrid();
-        if(editMode) toggleLiveEditDOMSync(true);
-        syncCloudChannel("checklist", activeStateDataset);
-    }
-
-    function toggleLiveEditDOMSync(forceStyles = false) {
-        const textElements = document.querySelectorAll('.node-text, .product-title-node, header h1, .section-title span');
-        if(editMode || forceStyles) {
-            textElements.forEach(el => { el.setAttribute('contenteditable', 'true'); });
-            enforceIncidentCellEdits();
-        } else {
-            textElements.forEach(el => el.removeAttribute('contenteditable'));
-            document.querySelectorAll('.inc-cell').forEach(cell => cell.removeAttribute('contenteditable'));
-        }
-    }
-
-    function saveDOMChangesToArray() {
-        const mainNode = document.getElementById('globalMainHeadlineText');
-        const overviewNode = document.getElementById('headlineOverviewPanelText');
-        const logNode = document.getElementById('headlineIncidentLogText');
-        
-        if(mainNode) globalHeadlinesDataset.main = mainNode.innerText.trim();
-        if(overviewNode) globalHeadlinesDataset.overview = overviewNode.innerText.trim();
-        if(logNode) globalHeadlinesDataset.log = logNode.innerText.trim();
-        
-        localStorage.setItem('operations_headlines_storage', JSON.stringify(globalHeadlinesDataset));
-        syncCloudChannel("headlines", globalHeadlinesDataset);
-
-        document.querySelectorAll('.product-column').forEach(col => {
-            const id = col.getAttribute('data-id');
-            if (!activeStateDataset[id]) return;
-            
-            const titleNode = col.querySelector('.product-title-node');
-            if(titleNode) activeStateDataset[id].title = titleNode.innerText.trim();
-            
-            ['key', 'app', 'prev'].forEach(sec => {
-                const rows = col.querySelectorAll(`.block-section[data-section="${sec}"] .node-item`);
-                rows.forEach((li, idx) => {
-                    const textNode = li.querySelector('.node-text');
-                    if(textNode && activeStateDataset[id][sec][idx]) {
-                        activeStateDataset[id][sec][idx].text = textNode.innerText.trim();
-                    }
-                });
-            });
-        });
-        syncCloudChannel("checklist", activeStateDataset);
-    }
-
     function toggleLiveEdit() {
         if (!editMode) {
             const inputPass = prompt("Enter Admin Password:");
             if (inputPass !== ADMIN_EDIT_PASSWORD) return;
+            editMode = true;
+            document.body.classList.add('admin-unlocked', 'editable-active');
+            document.getElementById('editModeBtn').textContent = "💾 Lock Admin Layout";
+            document.getElementById('globalMainHeadlineText').removeAttribute('readonly');
+            document.getElementById('headlineOverviewPanelText').removeAttribute('readonly');
+            document.getElementById('headlineIncidentLogText').removeAttribute('readonly');
+        } else {
+            editMode = false;
+            document.body.classList.remove('admin-unlocked', 'editable-active');
+            document.getElementById('editModeBtn').textContent = "🔒 Unlock Admin Edit";
+            document.getElementById('globalMainHeadlineText').setAttribute('readonly', true);
+            document.getElementById('headlineOverviewPanelText').setAttribute('readonly', true);
+            document.getElementById('headlineIncidentLogText').setAttribute('readonly', true);
         }
-        editMode = !editMode;
-        const btn = document.getElementById('editModeBtn');
-        if(editMode) { 
-            btn.textContent = "💾 Lock Admin Layout"; 
-            document.body.classList.add('admin-unlocked', 'editable-active'); 
-        } else { 
-            saveDOMChangesToArray(); 
-            btn.textContent = "🔒 Unlock Admin Edit"; 
-            document.body.classList.remove('admin-unlocked', 'editable-active'); 
-        }
-        
         rebuildSummaryTableMarkupStructures(); 
         renderMatrixDashboardGrid();
         calculateDynamicKPIs();
-        toggleLiveEditDOMSync();
     }
 
     function updateScriptStatus(selectElement, prodId, updateStorage = true) {
@@ -765,7 +698,7 @@
     function executeSearch() {
         const query = document.getElementById('dashboardSearch').value.trim().toLowerCase();
         document.querySelectorAll('.node-item').forEach(item => {
-            if(item.innerText.toLowerCase().includes(query) || !query) item.style.opacity = "1"; else item.style.opacity = "0.2";
+            if(item.value.toLowerCase().includes(query) || !query) item.style.opacity = "1"; else item.style.opacity = "0.2";
         });
     }
 
@@ -806,27 +739,14 @@
 
     function createNewIncidentRow() {
         incidentLogDataset.push({ model: "New Product Model", issue: "Describe issue details...", date: "2026-06", ref: "Ref ID", action: "HQ action roadmap...", status: "PENDING" });
-        calculateDynamicKPIs(); // Triggers instant dynamic live reflections
+        calculateDynamicKPIs(); 
         syncCloudChannel("incidents", incidentLogDataset);
     }
 
     function updateIncidentStatus(select, globalIdx) {
         incidentLogDataset[globalIdx].status = select.value;
-        calculateDynamicKPIs(); // Triggers instant dynamic live reflections
+        calculateDynamicKPIs(); 
         syncCloudChannel("incidents", incidentLogDataset);
-    }
-
-    function enforceIncidentCellEdits() {
-        document.querySelectorAll('.inc-cell').forEach(cell => {
-            cell.setAttribute('contenteditable', 'true');
-            cell.onblur = function() {
-                const idx = this.getAttribute('data-idx');
-                const field = this.getAttribute('data-field');
-                incidentLogDataset[idx][field] = this.innerText.trim();
-                calculateDynamicKPIs(); // Triggers instant dynamic live reflections
-                syncCloudChannel("incidents", incidentLogDataset);
-            };
-        });
     }
 
     function exportToCSVFile() {
@@ -849,7 +769,7 @@
             const p = activeStateDataset[id];
             let slide = pptx.addSlide();
             slide.addText(`${p.title.toUpperCase()} FUNCTIONAL CHECKLIST STATUS`, { x: 0.5, y: 0.4, w: 11, h: 0.5, fontSize: 18, bold: true, color: '5c3e35' });
-            slide.addText("Egypt TSE Proactive Evaluation Matrix", { x: 0.5, y: 0.9, w: 8, h: 0.3, fontSize: 11, bold: true, color: 'f57c00' });
+            slide.addText("Proactive Quality Evaluation Matrix", { x: 0.5, y: 0.9, w: 8, h: 0.3, fontSize: 11, bold: true, color: 'f57c00' });
 
             let currentY = 1.4;
             ['key', 'app', 'prev'].forEach(sec => {
